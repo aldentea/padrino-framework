@@ -2,19 +2,23 @@ language: ruby
 sudo: false
 cache: bundler
 before_install:
-  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
-  - gem install bundler -v 1.17.3
+  - if [ "$TRAVIS_RUBY_VERSION" = "2.2.10" ]; then
+			gem install bundler -v '<2.0';
+		else
+			gem install bundler;
+		fi
 install:
   - bundle update
 rvm:
-  - 2.2.2
-  - 2.3.0
-  - 2.3.3
-  - 2.4.3
-  - 2.5.0
+  - 2.2.10
+  - 2.3.8
+  - 2.4.9
+  - 2.5.7
+	- 2.6.5
+	- 2.7.0
   - ruby-head
-  - rbx-2
-  - jruby
+  - rbx-3
+  - jruby-9.2.9.0
   - jruby-head
 notifications:
   irc: 'irc.freenode.org#padrino'
@@ -36,19 +40,19 @@ branches:
 services: mongodb
 matrix:
   include:
-    - rvm: 2.3.3
+    - rvm: 2.3.8
       env: SINATRA_EDGE=true
-    - rvm: 2.3.3
+    - rvm: 2.3.8
       env: ERB_ENGINE=stdlib
-    - rvm: 2.3.3
+    - rvm: 2.3.8
       env: ERB_ENGINE=erubis
-    - rvm: 2.3.3
+    - rvm: 2.3.8
       env: HAML_ENGINE=hamlit
-    - rvm: 2.3.3
+    - rvm: 2.3.8
       env: AS_VERSION=3.2
   allow_failures:
-    - rvm: rbx-2
-    - rvm: jruby
+    - rvm: rbx-3
+    - rvm: jruby-9.2.9.0
     - rvm: jruby-head
     - rvm: ruby-head
     - env: SINATRA_EDGE=true
