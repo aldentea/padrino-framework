@@ -3,10 +3,10 @@ sudo: false
 cache: bundler
 before_install:
   - if [ "$TRAVIS_RUBY_VERSION" = "2.2.10" ]; then
-			gem install bundler -v '<2.0';
-		else
-			gem install bundler;
-		fi
+      gem install bundler -v '<2.0';
+    else
+      gem install bundler;
+    fi
 install:
   - bundle update
 rvm:
@@ -14,29 +14,31 @@ rvm:
   - 2.3.8
   - 2.4.9
   - 2.5.7
-	- 2.6.5
-	- 2.7.0
+  - 2.6.5
+  - 2.7.0
   - ruby-head
   - rbx-3
   - jruby-9.2.9.0
   - jruby-head
 notifications:
-  irc: 'irc.freenode.org#padrino'
+#  irc: 'irc.freenode.org#padrino'
   recipients:
-    - nesquena@gmail.com
-    - mr.arthur.chiu@gmail.com
-    - joshbuddy@gmail.com
-    - info@daddye.it
-    - florian.gilcher@asquera.de
-    - dario@uxtemple.com
-    - ujifgc@gmail.com
-    - ortuna@gmail.com
-    - namusyaka@gmail.com
+#    - nesquena@gmail.com
+#    - mr.arthur.chiu@gmail.com
+#    - joshbuddy@gmail.com
+#    - info@daddye.it
+#    - florian.gilcher@asquera.de
+#    - dario@uxtemple.com
+#    - ujifgc@gmail.com
+#    - ortuna@gmail.com
+#    - namusyaka@gmail.com
+    - aldentea-dev@telepathy.aldentea.0g0.jp
 branches:
   only:
-    - master
-    - 0.12
-    - 0.14
+#    - master
+#    - 0.12
+#    - 0.14
+    - develop
 services: mongodb
 matrix:
   include:
