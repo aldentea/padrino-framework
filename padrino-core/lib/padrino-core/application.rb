@@ -26,6 +26,14 @@ module Padrino
       Padrino.logger
     end
 
+    def route_missing
+      if @app
+        forward
+      else
+        raise ::Sinatra::NotFound
+      end
+    end
+
     class << self
       def inherited(base)
         begun_at = Time.now
@@ -162,6 +170,7 @@ module Padrino
         set(option, *args, &block) unless respond_to?(option)
       end
 
+      
       protected
 
       ##
