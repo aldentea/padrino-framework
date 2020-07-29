@@ -42,15 +42,15 @@ branches:
 services: mongodb
 matrix:
   include:
-    - rvm: 2.3.8
+    - rvm: 2.6.3
       env: SINATRA_EDGE=true
-    - rvm: 2.3.8
+    - rvm: 2.6.3
       env: ERB_ENGINE=stdlib
-    - rvm: 2.3.8
+    - rvm: 2.6.3
       env: ERB_ENGINE=erubis
-    - rvm: 2.3.8
+    - rvm: 2.6.3
       env: HAML_ENGINE=hamlit
-    - rvm: 2.3.8
+    - rvm: 2.6.3
       env: AS_VERSION=3.2
   allow_failures:
     - rvm: rbx-3
