@@ -13,8 +13,8 @@ module Padrino
       # @return [String]
       #  The translation for the specified keys.
       #
-      def translate(**args)
-        I18n.translate(**args)
+      def translate(*args)
+        I18n.translate(*args)
       end
       alias :t :translate
 
@@ -27,8 +27,8 @@ module Padrino
       # @return [String]
       #  The translation for the specified keys.
       #
-      def localize(**args)
-        I18n.localize(**args)
+      def localize(*args)
+        I18n.localize(*args)
       end
       alias :l :localize
     end
