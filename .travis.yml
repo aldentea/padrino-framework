@@ -1,5 +1,7 @@
 language: ruby
-sudo: false
+os: linux
+dist: bionic
+#sudo: false
 cache: bundler
 before_install:
   - if [ "$TRAVIS_RUBY_VERSION" = "2.2.10" ]; then
@@ -12,10 +14,10 @@ install:
 rvm:
   - 2.2.10
   - 2.3.8
-  - 2.4.9
-  - 2.5.7
-  - 2.6.5
-  - 2.7.0
+  - 2.4.10
+  - 2.5.8
+  - 2.6.6
+  - 2.7.2
   - ruby-head
   - rbx-3
   - jruby-9.2.9.0
@@ -40,17 +42,17 @@ branches:
 #    - 0.14
     - develop
 services: mongodb
-matrix:
+jobs:
   include:
-    - rvm: 2.6.3
+    - rvm: 2.7.2
       env: SINATRA_EDGE=true
-    - rvm: 2.6.3
+    - rvm: 2.7.2
       env: ERB_ENGINE=stdlib
-    - rvm: 2.6.3
+    - rvm: 2.7.2
       env: ERB_ENGINE=erubis
-    - rvm: 2.6.3
+    - rvm: 2.7.2
       env: HAML_ENGINE=hamlit
-    - rvm: 2.6.3
+    - rvm: 2.7.2
       env: AS_VERSION=3.2
   allow_failures:
     - rvm: rbx-3
