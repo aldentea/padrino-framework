@@ -47,6 +47,8 @@ jobs:
     - rvm: 2.7.2
       env: SINATRA_EDGE=true
     - rvm: 2.7.2
+      env: SINATRA_VERSION=2.0.8
+    - rvm: 2.7.2
       env: ERB_ENGINE=stdlib
     - rvm: 2.7.2
       env: ERB_ENGINE=erubis
@@ -60,3 +62,4 @@ jobs:
     - rvm: jruby-head
     - rvm: ruby-head
     - env: SINATRA_EDGE=true
+    - env: SINATRA_VERSION=2.0.8
