@@ -188,11 +188,14 @@ describe "Routing" do
     assert_equal "no access", body
   end
 
+  require 'webrick/httputils'
   it 'should parse routes that are encoded' do
     mock_app do
       get('/щч') { 'success!' }
     end
-    get(URI.escape('/щч'))
+    # should give "/%D1%89%D1%87", which you can get (only?) with WEBrick::HTTPUtils.escape.
+    # cf. ruby-core:29373
+    get(WEBrick::HTTPUtils.escape('/щч'))
     assert_equal 'success!', body
   end
 

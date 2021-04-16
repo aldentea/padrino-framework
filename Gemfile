@@ -51,6 +51,7 @@ group :development do
   gem "mocha",    ">= 0.10.0"
   gem "minitest", ">= 4.0"
   gem 'rb-readline', '~> 0.4.2'
+  gem 'webrick', ">= 1.0"
 
   platforms :jruby do
     gem "jruby-openssl"
