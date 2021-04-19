@@ -3,7 +3,7 @@ PADRINO_ROOT = File.dirname(__FILE__) unless defined? PADRINO_ROOT
 
 require 'minitest/autorun'
 require 'minitest/pride'
-require 'mocha/setup'
+require 'mocha/minitest'
 require 'rack/test'
 require 'thor/group'
 require 'sequel/model'
